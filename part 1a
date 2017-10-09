@@ -1,76 +1,23 @@
 //Norah Nwaneri
 #include <iostream>
-#include <vector>
 #include <iomanip>
 using namespace std;
 
-vector<vector<int> >& allCombinations(int N, int prev, vector<int> v, vector<vector<int> > &vPrime){
-	if (N < 0)
-		return vPrime;
-	if (N == 0)
-	{
-		vPrime.push_back(v);
-		return vPrime;
-	}
-	v.push_back(0);
-	for (int i = prev; i > 0; i--)
-	{
-		v.pop_back();
-		v.push_back(i);
-		allCombinations(N - i, i, v, vPrime);
-	}
+void findPairs(int array1[], int array2[], int n, int m, int x){
+for (int i = 0; i<n; i++)
+	for (int j = 0; j<m; j++)
+		if (array1[i] + array2[j] == x)
+			cout << array1[i] << " "
+			<< array2[j] << endl;
 }
 
-void printVect(vector<int> &myVector)
+int main()
 {
-	int i = 0, size = myVector.size();
-	for (i = 0;i < size;i++)
-		cout << myVector[i];
-	cout << "\n";
-}
-void printVects(vector<vector<int> > &myVector)
-{
-	int i, size = myVector.size();
-	for (i = 0; i < size; i++)
-		printVect(myVector[i]);
-}
-
-int main(int argc, char const *argv[])
-{
-	vector<vector<int> > u;
-	vector<int> v;
-	allCombinations(9, 9 - 1, v, u);
-	printVects(u);
+	int array1[] = { 2, 11, 7, 5, 4 };
+	int array2[] = { 0, 7, 4, 3, 2, 1 };
+	int n = sizeof(array1) / sizeof(int);
+	int m = sizeof(array2) / sizeof(int);
+	int x = 9;
+	findPairs(array1, array2, n, m, x);
 	return 0;
 }
-/*
-81
-72
-711
-63
-621
-6111
-54
-531
-522
-5211
-51111
-441
-432
-4311
-4221
-42111
-411111
-333
-3321
-33111
-3222
-32211
-321111
-3111111
-22221
-222111
-2211111
-21111111
-111111111
-*/
