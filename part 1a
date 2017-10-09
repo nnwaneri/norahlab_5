@@ -21,3 +21,9 @@ int main()
 	findPairs(array1, array2, n, m, x);
 	return 0;
 }
+/*
+2 7
+7 2
+5 4
+Press any key to continue . . .
+*/
