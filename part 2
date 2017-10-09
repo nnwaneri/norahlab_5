@@ -1,0 +1,27 @@
+//Norah Nwaneri
+#include <iostream>
+using namespace std;
+
+int getColumn(string columnName) {
+	int result = 0;
+	for (const auto& myChar : columnName)
+	{
+		result *= 26;
+		result += myChar - 'A' + 1;
+	}
+	return result;
+}
+
+int main() {
+	cout << "A: " << getColumn("A") << '\n';
+	cout << "CB: " << getColumn("CB") << '\n';
+	cout << "DZ: " << getColumn("DZ") << '\n';
+	cout << "ZN: " << getColumn("ZN") << '\n';
+	return 0;
+}
+/*
+A: 1
+CB: 80
+DZ: 130
+ZN: 690
+Press any key to continue . . .*/
